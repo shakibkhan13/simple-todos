@@ -31,3 +31,11 @@ export const deleteTodo = (todos, id) => {
   saveTodosToStorage(updated)
   return updated
 }
+
+export const updateTodo = (todos, id, newText) => {
+  const updated = todos.map((todo) =>
+    todo.id === id ? { ...todo, text: newText } : todo
+  )
+  saveTodosToStorage(updated)
+  return updated
+}

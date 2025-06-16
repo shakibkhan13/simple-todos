@@ -1,8 +1,8 @@
 import React from 'react'
-import { CheckCircle, Trash2, X } from 'lucide-react'
+import { CheckCircle, Trash2, X, Pencil } from 'lucide-react'
 import Button from './Button'
 
-export default function TodoList({ todos, onToggle, onDelete }) {
+export default function TodoList({ todos, onToggle, onDelete, onEdit }) {
   return (
     <ul className="space-y-3">
       {todos.map((todo) => (
@@ -33,6 +33,13 @@ export default function TodoList({ todos, onToggle, onDelete }) {
               title={todo.completed ? 'Mark Incomplete' : 'Mark Complete'}
             >
               {todo.completed ? <X size={20} /> : <CheckCircle size={20} />}
+            </Button>
+            <Button
+              onClick={() => onEdit(todo)}
+              className="text-blue-600 hover:text-blue-800 transition"
+              title="Edit Task"
+            >
+              <Pencil size={20} />
             </Button>
             <Button
               onClick={() => onDelete(todo.id)}
