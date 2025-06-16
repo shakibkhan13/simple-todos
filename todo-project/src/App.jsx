@@ -62,7 +62,7 @@ export default function App() {
   return (
     <div className="max-w-md mx-auto mt-12 p-6 bg-white rounded-xl shadow-xl border border-gray-200">
       <h2 className="text-3xl font-bold text-center mb-6 text-gray-700">My To-Do App</h2>
-      <TodoInput onAdd={handleAdd} />
+      <TodoInput onAdd={handleAdd} onUpdate={handleUpdate} editingTodo={editingTodo} />
       <TodoList
         todos={todos}
         onToggle={handleToggle}
@@ -82,7 +82,7 @@ export default function App() {
           onCancel={() => setIsEditModalOpen(false)}
         />
       </Modal>
-      
+
       <Modal
         title="Delete this task?"
         open={isDeleteModalOpen}
